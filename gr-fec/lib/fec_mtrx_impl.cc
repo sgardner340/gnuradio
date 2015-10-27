@@ -479,7 +479,6 @@ namespace gr {
 
         gsl_matrix *identity = gsl_matrix_alloc(n,n);
         gsl_matrix_set_identity(identity);
-        #int test_if_equal = gsl_matrix_equal(identity,test);
 	//int test_if_equal = gsl_matrix_equal(identity,test);
 	gsl_matrix_sub(identity, test); // should be null set if equal
 	double test_if_not_equal = gsl_matrix_max(identity);
