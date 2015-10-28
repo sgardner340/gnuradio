@@ -85,18 +85,15 @@ namespace gr {
         gsl_matrix_free(identity);
         gsl_matrix_free(I_test);
 
-        if(test_if_not_equal > 0) {
-        throw "Error in calc_inverse_mod2(): The matrix inverse found is not valid.\n";
-        }
 
-        //if(!test_if_equal) {
-        //  GR_LOG_ERROR(d_logger,
-        //               "Error in ldpc_G_matrix_impl constructor. It appears "
-        //               "that the given alist file did not contain either a "
-        //               "valid parity check matrix of the form H = [P' I] or "
-        //               "a generator matrix of the form G = [I P].\n");
-        //  throw std::runtime_error("ldpc_G_matrix: Bad matrix definition");
-        //}
+        if(!test_if_equal) {
+          GR_LOG_ERROR(d_logger,
+                       "Error in ldpc_G_matrix_impl constructor. It appears "
+                       "that the given alist file did not contain either a "
+                       "valid parity check matrix of the form H = [P' I] or "
+                       "a generator matrix of the form G = [I P].\n");
+          throw std::runtime_error("ldpc_G_matrix: Bad matrix definition");
+        }
 
         // Our G matrix is verified as correct, now convert it to the
         // parity check matrix.
