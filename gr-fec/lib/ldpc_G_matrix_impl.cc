@@ -86,7 +86,7 @@ namespace gr {
         gsl_matrix_free(I_test);
 
 
-        if(!test_if_equal) {
+        if(test_if_not_equal > 0) {
           GR_LOG_ERROR(d_logger,
                        "Error in ldpc_G_matrix_impl constructor. It appears "
                        "that the given alist file did not contain either a "

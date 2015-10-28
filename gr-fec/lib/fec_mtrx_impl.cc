@@ -483,7 +483,7 @@ namespace gr {
 	gsl_matrix_sub(identity, test); // should be null set if equal
 	double test_if_not_equal = gsl_matrix_max(identity);
 
-        if (!test_if_equal) {
+        if(test_if_not_equal > 0) {
           throw "Error in calc_inverse_mod2(): The matrix inverse found is not valid.\n";
         }
 
