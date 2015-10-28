@@ -77,7 +77,9 @@ namespace gr {
         }
 
         // Check if the identity matrix exists in the right spot.
-        int test_if_equal = gsl_matrix_equal(identity, I_test);
+        //int test_if_equal = gsl_matrix_equal(identity,test);
+        gsl_matrix_sub(identity, test); // should be null set if equal
+        double test_if_not_equal = gsl_matrix_max(identity);
 
         // Free memory
         gsl_matrix_free(identity);
